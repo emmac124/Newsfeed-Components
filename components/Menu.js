@@ -20,6 +20,8 @@ let menuItems = [
 
 //   The 'menuMaker' takes an array of menu items as its only argument.
 
+const header = document.querySelector('.header');
+
 function menuMaker(array){
   const menu = document.createElement('div');
   const startList = document.createElement('ul');
@@ -28,18 +30,13 @@ function menuMaker(array){
 
   menu.classList.add('menu');
 
+  // startList.textContent = array;
 
-menuItems.forEach(item => {
-  item[i].createElement('li');
-  startList.appendChild(item);
-
-});
-
-
-  startList.textContent = array;
-
-  //   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
-//   Add those items to the <ul>
+menuItems.forEach( item => {
+  let items = menuMaker(item);
+  items.createElement('li');
+  startList.appendChild(items);
+})
 
 const menuButton = document.querySelector('menu-button');
 
@@ -49,9 +46,12 @@ menuButton.addEventListener('click', event => {
   return menu;
 }
 
-const header = document.querySelector('.header');
+  //   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
+//   Add those items to the <ul>
+
+// const header = document.querySelector('.header');
  
-header.appendChild(menuMaker);
+// header.appendChild(menuMaker);
 
 //   Step 3: Still inside your function, select from the DOM the menu button (the element with a class of 'menu-button').
 
